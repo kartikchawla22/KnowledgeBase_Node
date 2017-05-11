@@ -56,6 +56,16 @@ exports.posttitle = function (req, res) {
 
     });
 };
+exports.getTitles=function(req,res){
+    Title.find({}, function(err, response){
+        if(err) {
+            return res.json(req, res, err);
+        }
+
+        res.json(response);
+    })
+}
+
 
 
 exports.postHeading = function (req, res) {
@@ -79,6 +89,16 @@ exports.postHeading = function (req, res) {
 
     });
 };
+exports.getHeadings=function(req,res){
+    Heading.find({}, function(err, response){
+        if(err) {
+            return res.json(req, res, err);
+        }
+
+        res.json(response);
+    })
+}
+
 
 
 

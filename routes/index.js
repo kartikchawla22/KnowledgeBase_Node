@@ -9,10 +9,12 @@ router.route('/v1/users')
 
 router.route('/v1/titles')
   .post(userController.posttitle)
+  .get(userController.getTitles)
   
 
 router.route('/v1/headings')
   .post(userController.postHeading)
+  .get(userController.getHeadings)
   
 
 
