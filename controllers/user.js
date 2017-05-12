@@ -90,8 +90,8 @@ exports.postHeading = function (req, res) { // Function to post all the Headings
 };
 
 
-exports.getHeadings = function (req, res) { // Function to Get the data from Headings
-    Heading.find({}, function (err, response) { // Function to Find all the Headings from collection "Heading"
+exports.getHeadings = function (req, res) {      // Function to Get the data from Headings
+    Heading.find({}, function (err, response) {     // Function to Find all the Headings from collection "Heading"
         if (err) {
             return res.json(req, res, err);
         }
@@ -101,15 +101,15 @@ exports.getHeadings = function (req, res) { // Function to Get the data from Hea
 }
 
 
-// exports.searchUsers = function (req, res) {
-//     var regex = RegExp(req.params.reg);
+exports.SearchData = function (req, res) {
+    var regex = RegExp(req.params.reg);
 
 
-//     User.find({ name: regex }, function (err, response) {
-//         if (err) {
-//             return res.json(req, res, err);
-//         }
+    Heading.find({ H_Data : regex }, function (err, response) {
+        if (err) {
+            return res.json(req, res, err);
+        }
 
-//         res.json(response);
-//     })
-// }
+        res.json(response);
+    })
+}
