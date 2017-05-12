@@ -4,12 +4,12 @@ var Title = require("../models/titles");
 var Heading = require("../models/headings");
 
 
+
 exports.postUsers = function (req, res) { // Function to Post the Data in Users Collection of Database
     var user = new User({ // Making Object of Users schema 
         username: req.body.username,
-        password: req.body.password,
-        created_at: new Date(),
-        updated_at: ""
+        password: req.body.password
+       
     });
     user.save(function (err, response) { // Saving the Data into the Database
         if (err) {
@@ -39,9 +39,8 @@ exports.getUsers = function (req, res) { // Function to Get the data from users
 exports.posttitle = function (req, res) { // Function to Post the Titles in Title Collection of Database
     var title = new Title({ // Making Object of Title schema 
         T_Name: req.body.T_Name,
-        T_Id: req.body.T_Id,
-        created_at: new Date(),
-        updated_at: ""
+        T_Id: req.body.T_Id
+      
     });
     title.save(function (err, response) { // Saving the Data into the Database
         if (err) {
@@ -72,9 +71,8 @@ exports.postHeading = function (req, res) { // Function to post all the Headings
     var heading = new Heading({ // Making Object of Heading Schema
         T_ID: req.body.T_ID,
         H_Name: req.body.H_Name,
-        H_Data: req.body.H_Data,
-        created_at: new Date(),
-        updated_at: ""
+        H_Data: req.body.H_Data
+       
     });
     heading.save(function (err, response) { // Saving the Headings into the Database
         if (err) {
