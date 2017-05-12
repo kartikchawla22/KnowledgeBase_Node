@@ -2,13 +2,14 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var autoIncrement = require('mongoose-auto-increment');
 
 //var Regex = require("regex");
 // Connect to the MongoDB
 mongoose.connect('mongodb://localhost:27017/KnowledgeBase');
-
+autoIncrement.initialize(connection);
 // Connect to the MongoDB with Database "KnowBase"
-mongoose.connect('mongodb://localhost:27017/KnowBase');
+// mongoose.connect('mongodb://localhost:27017/KnowBase');
 
 
 // Create Express application
