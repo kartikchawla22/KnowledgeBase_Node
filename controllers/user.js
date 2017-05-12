@@ -1,19 +1,17 @@
+// Get the Schemas We need to Enter the Data in their respective keys
+var User = require("../models/users");
+var Title = require("../models/titles");
+var Heading = require("../models/headings");
 
-var User=require("../models/users");
-var Title=require("../models/titles");
-var Heading=require("../models/headings");
 
-// var Promise = require("bluebird");
-
-exports.postUsers = function (req, res) {
-    var user = new User({
+exports.postUsers = function (req, res) { // Function to Post the Data in Users Collection of Database
+    var user = new User({ // Making Object of Users schema 
         username: req.body.username,
         password: req.body.password,
         created_at: new Date(),
         updated_at: ""
     });
-
-    user.save(function (err, response) {
+    user.save(function (err, response) { // Saving the Data into the Database
         if (err) {
             return res.json(req, res, err);
         }
@@ -26,9 +24,10 @@ exports.postUsers = function (req, res) {
     });
 };
 
-exports.getUsers=function(req,res){
-    User.find({}, function(err, response){
-        if(err) {
+
+exports.getUsers = function (req, res) { // Function to Get the data from users
+    User.find({}, function (err, response) { // Function to Find all the Users from collection 
+        if (err) {
             return res.json(req, res, err);
         }
 
@@ -36,15 +35,15 @@ exports.getUsers=function(req,res){
     })
 }
 
-exports.posttitle = function (req, res) {
-    var title = new Title({
+
+exports.posttitle = function (req, res) { // Function to Post the Titles in Title Collection of Database
+    var title = new Title({ // Making Object of Title schema 
         T_Name: req.body.T_Name,
         T_Id: req.body.T_Id,
         created_at: new Date(),
         updated_at: ""
     });
-
-    title.save(function (err, response) {
+    title.save(function (err, response) { // Saving the Data into the Database
         if (err) {
             return res.json(req, res, err);
         }
@@ -56,9 +55,11 @@ exports.posttitle = function (req, res) {
 
     });
 };
-exports.getTitles=function(req,res){
-    Title.find({}, function(err, response){
-        if(err) {
+
+
+exports.getTitles = function (req, res) { // Function to Get the Titles from database
+    Title.find({}, function (err, response) { // Function to Find all the Titles from collection 
+        if (err) {
             return res.json(req, res, err);
         }
 
@@ -67,17 +68,15 @@ exports.getTitles=function(req,res){
 }
 
 
-
-exports.postHeading = function (req, res) {
-    var heading = new Heading({
+exports.postHeading = function (req, res) { // Function to post all the Headings to the collection 
+    var heading = new Heading({ // Making Object of Heading Schema
         T_ID: req.body.T_ID,
         H_Name: req.body.H_Name,
-        H_Data:req.body.H_Data,
+        H_Data: req.body.H_Data,
         created_at: new Date(),
         updated_at: ""
     });
-
-    heading.save(function (err, response) {
+    heading.save(function (err, response) { // Saving the Headings into the Database
         if (err) {
             return res.json(req, res, err);
         }
@@ -89,9 +88,11 @@ exports.postHeading = function (req, res) {
 
     });
 };
-exports.getHeadings=function(req,res){
-    Heading.find({}, function(err, response){
-        if(err) {
+
+
+exports.getHeadings = function (req, res) {      // Function to Get the data from Headings
+    Heading.find({}, function (err, response) {     // Function to Find all the Headings from collection "Heading"
+        if (err) {
             return res.json(req, res, err);
         }
 
@@ -100,82 +101,15 @@ exports.getHeadings=function(req,res){
 }
 
 
+exports.SearchData = function (req, res) {
+    var regex = RegExp(req.params.reg);
 
 
-// exports.updateUsers = function (req, res) {
-//     var id = req.params.id;
-//     User.findOne({ _id: id }, function (err, user) {
-//         if (err) {
-//             res.json(err);
-//         }
+    Heading.find({ H_Data : regex }, function (err, response) {
+        if (err) {
+            return res.json(req, res, err);
+        }
 
-//         var username = req.body.username;
-//         user.username = username;
-//         user.updated_at = new Date();
-
-//         user.save(function (err, response) {
-//             if (err) {
-//                 res.json(err);
-//             }
-
-//             res.json(response);
-//         })
-//     })
-// }
-
-// exports.deleteUsers = function (req, res) {
-//     var id = req.params.id;
-//     User.findOne({ _id: id }, function (err, user) {
-//         if (err) {
-//             res.json(err);
-//         }
-
-//         if (user) {
-//             User.remove({ _id: id }, function (err) {
-//                 if (err) {
-//                     res.json(err);
-//                 }
-
-//                 res.json("success");
-//             })
-//         } else {
-//             res.json("User doesnt exist");
-//         }
-
-//     })
-// }
-// exports.findUser = function (req, res) {
-//     var id = req.params.id;
-//     User.findOne({ _id: id }, function (err, response) {
-//         if (err) {
-//             res.json(err);
-//         }
-
-//         if (response) {
-//             res.json(response);
-//         }
-
-
-//         else {
-//             res.json("User doesnt exist");
-//         }
-
-//     })
-// }
-// exports.searchUsers = function (req, res) {
-//     var regex = RegExp(req.params.reg);
-
-
-//     User.find({ name: regex }, function (err, response) {
-//         if (err) {
-//             return res.json(req, res, err);
-//         }
-
-//         res.json(response);
-//     })
-// }
-
-
-
-
-
+        res.json(response);
+    })
+}

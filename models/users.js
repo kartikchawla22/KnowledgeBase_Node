@@ -1,13 +1,20 @@
 // Load required packages
-var mongoose = require('mongoose'),Schema=mongoose.Schema;
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
 
 // Define our user schema
 var UserSchema = new Schema({
-    username: {type: String},
-    password: {type: String},
-    created_at: {type: Date, default: Date.now},
+    username: {
+        type: String
+    },
+    password: {
+        type: String
+    },
+    created_at: {
+        type: Date,
+        default: Date.now
+    },
     updated_at: Date
 });
 
-module.exports=mongoose.model('User', UserSchema);
-  
+module.exports = mongoose.model('User', UserSchema);
