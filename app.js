@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 //var Regex = require("regex");
 // Connect to the MongoDB
-mongoose.connect('mongodb://localhost:27017/KnowBase');
+mongoose.connect('mongodb://localhost:27017/KnowledgeBase');
 
 // Create Express application
 var app = module.exports = express();
@@ -25,4 +25,4 @@ var port = process.env.PORT || 4000;
 
 // Start the server
 app.listen(port);
-console.log('Insert getat on port ' + port);
+console.log('App Running on port ' + port);
