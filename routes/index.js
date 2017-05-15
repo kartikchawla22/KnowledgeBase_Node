@@ -22,5 +22,11 @@ router.route('/v1/Search/:reg')
 
 router.route('/v1/Check')
   .post(userController.CheckUsers);
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> d59a2146c5dbebc663a40d2a9763a2d9c9f7919d
 
 module.exports = router; // Exporting router

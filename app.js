@@ -4,9 +4,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
 // Connect to the MongoDB
-
 mongoose.connect('mongodb://localhost:27017/KnowledgeBase');
-
 
 // Create Express application
 var app = module.exports = express();

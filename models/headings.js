@@ -14,5 +14,5 @@ var H_Schema = new Schema({
         type: String
     },
 });
- 
+
 module.exports = mongoose.model('Heading', H_Schema);
