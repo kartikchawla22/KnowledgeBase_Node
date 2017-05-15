@@ -17,7 +17,13 @@ router.route('/v1/headings') // Route to Post and Get Data From and To Headings 
   .post(userController.postHeading)
   .get(userController.getHeadings);
 
+router.route('/v1/Search/:reg')
+  .get(userController.SearchData);
 
-router.route('v1/search/:reg')
-.get(userController.SearchData);
+router.route('/v1/Check')
+  .post(userController.CheckUsers);
+
+
+
+
 module.exports = router; // Exporting router
