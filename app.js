@@ -6,10 +6,15 @@ var autoIncrement = require('mongoose-auto-increment');
 
 //var Regex = require("regex");
 // Connect to the MongoDB
+<<<<<<< HEAD
 var connection=mongoose.connect('mongodb://localhost:27017/KnowledgeBase');
 autoIncrement.initialize(connection);
 
 
+=======
+mongoose.connect('mongodb://localhost:27017/KnowledgeBase');
+autoIncrement.initialize(connection);
+>>>>>>> 852700d7ec4591d3819eef6a964ad6c77db4f6e0
 // Connect to the MongoDB with Database "KnowBase"
 // mongoose.connect('mongodb://localhost:27017/KnowBase');
 
